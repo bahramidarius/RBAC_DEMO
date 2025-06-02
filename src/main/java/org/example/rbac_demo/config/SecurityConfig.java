@@ -15,9 +15,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/css/**", "/js/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/user/**").hasRole("USER")
+                        .requestMatchers("/", "/css/", "/js/").permitAll()
+                        .requestMatchers("/admin/").hasRole("ADMIN")
+                        .requestMatchers("/user/").hasRole("USER")
                         .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults()) // <-- default login page
